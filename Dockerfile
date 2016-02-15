@@ -1,4 +1,4 @@
-FROM babim/debianbase
+FROM babim/debianbase:ssh
 
 # properly setup debian sources
 ENV DEBIAN_FRONTEND noninteractive
@@ -47,6 +47,9 @@ RUN cd /etc/pure-ftpd/conf/ && \
 	echo "no" | tee AllowAnonymousFXP AllowDotFiles AllowUserFXP AnonymousCanCreateDirs AnonymousCantUpload AnonymousOnly AutoRename BrokenClientsCompatibility CallUploadScript DisplayDotFiles IPV6Only KeepAllFiles LogPID NATmode PAMAuthentication UnixAuthentication VerboseLog
 
 # startup
-CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009
+RUN echo 'service ssh start' > /startup.cmd \
+    && echo 'CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009' >> /startup.cmd \
+    && chmod +x /startup.cmd
+CMD /startup.cmd
 
-EXPOSE 21 30000-30009
+EXPOSE 21 22 30000-30009
