@@ -8,6 +8,9 @@ Thanks stilliard/pure-ftpd
 
 `docker run -d --name ftpd_server -p 21:21 -p 30000-30009:30000-30009 -e "PUBLICHOST=localhost" babim/pure-ftpd`
 
+add for map volume for ftp data:
+-v /data/ftpdata:/home/ftpusers
+
 *Or for your own image, replace babim/pure-ftpd with the name you built it with, e.g. my-pure-ftp*
 
 ## Operating it
