@@ -1,8 +1,5 @@
 
-FROM debian:jessie
-
-# feel free to change this ;)
-MAINTAINER Andrew Stilliard <andrew.stilliard@gmail.com>
+FROM babim/debianbase
 
 # properly setup debian sources
 ENV DEBIAN_FRONTEND noninteractive
@@ -49,4 +46,3 @@ VOLUME /home/ftpusers
 CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009
 
 EXPOSE 21 30000-30009
-
