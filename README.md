@@ -10,6 +10,7 @@ Thanks stilliard/pure-ftpd
 
 add for map volume for ftp data:
 -v /data/ftpdata:/home/ftpusers
+-v /data/pure-ftpd:/etc/pure-ftpd
 
 *Or for your own image, replace babim/pure-ftpd with the name you built it with, e.g. my-pure-ftp*
 
