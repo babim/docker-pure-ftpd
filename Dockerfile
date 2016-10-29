@@ -50,6 +50,8 @@ RUN mkdir -p /etc-start/pure-ftpd \
 && cp -R /etc/pure-ftpd/* /etc-start/pure-ftpd
 
 # startup
-CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 21 30000-30009
