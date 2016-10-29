@@ -46,10 +46,12 @@ RUN cd /etc/pure-ftpd/conf/ && \
 	echo "yes" | tee AntiWarez ChrootEveryone CreateHomeDir CustomerProof Daemonize DontResolve IPV4Only NoAnonymous NoChmod NoRename ProhibitDotFilesRead ProhibitDotFilesWrite \
 	echo "no" | tee AllowAnonymousFXP AllowDotFiles AllowUserFXP AnonymousCanCreateDirs AnonymousCantUpload AnonymousOnly AutoRename BrokenClientsCompatibility CallUploadScript DisplayDotFiles IPV6Only KeepAllFiles LogPID NATmode PAMAuthentication UnixAuthentication VerboseLog
 
+RUN mkdir -p /etc-start/pure-ftpd \
+&& cp -R /etc/pure-ftpd/* /etc-start/pure-ftpd
+
 # startup
-RUN echo 'service ssh start' > /startup.cmd \
-    && echo 'CMD /usr/sbin/pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009' >> /startup.cmd \
-    && chmod +x /startup.cmd
-CMD /startup.cmd
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 21 22 30000-30009
