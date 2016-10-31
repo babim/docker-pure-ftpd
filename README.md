@@ -56,10 +56,6 @@ pure-pw passwd bob
 ```
 More info on usage here: https://download.pureftpd.org/pure-ftpd/doc/README.Virtual-Users
 
-if you want to run FTP on port 1122 you need to run:
-```
-echo ",1122" > /etc/pure-ftpd/conf/Bind
-```
 ## Test your connection
 -------------------------
 From the host machine:
