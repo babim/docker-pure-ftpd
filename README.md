@@ -31,6 +31,29 @@ pure-pw mkdb
 ```
 *No restart should be needed.*
 
+Create an ftp user: `e.g. bob with chroot access only to /home/ftpusers/bob`
+
+add user
+```
+pure-pw useradd bob -u ftpuser -d /home/ftpusers/bob
+pure-pw mkdb
+```
+list user
+```
+pure-pw list
+```
+del user
+```
+pure-pw userdel bob
+```
+show information
+```
+pure-pw show bob
+```
+change password
+```
+pure-pw passwd bob
+```
 More info on usage here: https://download.pureftpd.org/pure-ftpd/doc/README.Virtual-Users
 
 
