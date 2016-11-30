@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/image/babim/pure-ftpd.svg)](https://microbadger.com/images/babim/pure-ftpd "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/pure-ftpd.svg)](https://microbadger.com/images/babim/pure-ftpd "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/babim/pure-ftpd:ssh.svg)](https://microbadger.com/images/babim/pure-ftpd:ssh "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/pure-ftpd:ssh.svg)](https://microbadger.com/images/babim/pure-ftpd:ssh "Get your own version badge on microbadger.com")
+
 Thanks stilliard/pure-ftpd
 
 # Docker Pure-ftpd Server
