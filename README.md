@@ -3,6 +3,8 @@
 
 Thanks stilliard/pure-ftpd
 
+# User pure-pw have uid and gid = 1000
+
 # Docker Pure-ftpd Server
 ============================
 
