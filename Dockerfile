@@ -2,6 +2,13 @@ FROM babim/debianbase
 
 # properly setup debian sources
 ENV DEBIAN_FRONTEND noninteractive
+RUN echo "deb http://http.debian.net/debian jessie main\n\
+deb-src http://http.debian.net/debian jessie main\n\
+deb http://http.debian.net/debian jessie-updates main\n\
+deb-src http://http.debian.net/debian jessie-updates main\n\
+deb http://security.debian.org jessie/updates main\n\
+deb-src http://security.debian.org jessie/updates main\n\
+" > /etc/apt/sources.list
 RUN apt-get -y update
 
 # install package building helpers
