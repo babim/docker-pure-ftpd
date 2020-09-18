@@ -1,5 +1,7 @@
 FROM babim/debianbase
 
+# properly setup debian sources
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y update
 
 # install package building helpers
